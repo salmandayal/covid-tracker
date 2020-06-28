@@ -1,0 +1,12 @@
+.MapContainer {
+}
+
+.Button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+h3 {
+  text-align: center;
+}
