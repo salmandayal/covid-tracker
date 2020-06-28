@@ -1,7 +1,22 @@
-import React from "react"
+import React, { Component } from "react"
+import { Cards, Chart, CountryPicker, MapVisual } from "./components"
+import styles from "./App.module.css"
+import { fetchData } from "./api"
 
-function App() {
-  return <div className='App'>covid-tracker</div>
+export default class App extends Component {
+  async componentDidMount() {
+    const data = await fetchData()
+    console.log(data)
+  }
+
+  render() {
+    return (
+      <div className={styles.Container}>
+        <Cards />
+        <Chart />
+        <CountryPicker />
+        <MapVisual />
+      </div>
+    )
+  }
 }
-
-export default App
