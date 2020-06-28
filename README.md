@@ -10,9 +10,9 @@ Covid-19 Tracking App. Shows stats both on charts and map.
 
 ## Run on Local Machine ✈
 
-Download the project or clone project locally<br/>
-Open project directory </br>
-open terminal in directory and type
+1. Download the project or clone project locally<br/>
+2. Open project directory </br>
+3. Open terminal in directory and run
 
 ### `npm install`
 
