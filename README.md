@@ -1,8 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
-
 ## Covid-Tracker 📈
 
-Covid-19 Tracking App. Shows stats both on charts and map.
+Covid-19 Tracking App. This app is based on interative maps and charts.
 
 ## Demo 🔥
 

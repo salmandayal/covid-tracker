@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react"
-import styles from "./MapVisual.module.css"
+import "./MapVisual.css"
 import { FaMapMarker } from "react-icons/fa"
 //Map stuff
 import ReactMapGL, { Marker, Popup } from "react-map-gl"
-import * as countriesData from "../../data/temp.json"
+import * as countriesData from "../../data/region.json"
 
 const MapVisual = () => {
   const [viewport, setViewport] = useState({
     latitude: 32.427908,
     longitude: 53.688046,
-    zoom: 5,
+    zoom: 1.5,
+    center: [0, 20],
     width: "100vw",
     height: "100vh",
   })
 
   const [selectedRegion, setSelectedRegion] = useState(null)
 
+  //For escape key binding
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -29,11 +31,21 @@ const MapVisual = () => {
     }
   }, [])
 
+  //marker color based on confirmed cases
+  const getColorFromCount = count => {
+    if (count < 10000) {
+      return "tomato"
+    } else if (count < 50000) {
+      return "#ad1c1c"
+    }
+    return "#800404"
+  }
+
   const mapbox_token =
     "pk.eyJ1Ijoic2FsbWFuZGF5YWwiLCJhIjoiY2tiemVzcG54MTkzZjJ6cDc2bndtaWg2byJ9.voSr5ZNIeuGRTV2Qqu4h3w"
 
   return (
-    <div className={styles.MapContainer}>
+    <div className='MapContainer'>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={mapbox_token}
@@ -47,13 +59,13 @@ const MapVisual = () => {
             key={country.uid}
           >
             <button
-              className={styles.Button}
+              className='Button'
               onClick={e => {
                 e.preventDefault()
                 setSelectedRegion(country)
               }}
             >
-              <FaMapMarker color='red' />
+              <FaMapMarker color={getColorFromCount(country.confirmed)} />
             </button>
           </Marker>
         ))}
@@ -64,10 +76,12 @@ const MapVisual = () => {
             longitude={selectedRegion.long}
             onClose={() => setSelectedRegion(null)}
           >
-            <h3>{selectedRegion.countryRegion}</h3>
-            <p>Confirmed Cases:{selectedRegion.confirmed}</p>
-            <p>Recovered Cases:{selectedRegion.recovered}</p>
-            <p>Deaths:{selectedRegion.deaths}</p>
+            <div>
+              <h3>{selectedRegion.countryRegion}</h3>
+              <p>Confirmed Cases:{selectedRegion.confirmed}</p>
+              <p>Recovered Cases:{selectedRegion.recovered}</p>
+              <p>Deaths:{selectedRegion.deaths}</p>
+            </div>
           </Popup>
         )}
       </ReactMapGL>

@@ -1,0 +1,28 @@
+.MapContainer {
+}
+
+.Button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+h3 {
+  text-align: center;
+}
+
+.Popup {
+  padding: 0;
+  color: white;
+  background-color: tomato;
+}
+
+.mapboxgl-popup-content {
+  height: 200px;
+  padding: 8;
+  background: salmon;
+  border-radius: 16px;
+}
+
+.mapboxgl-popup {
+}
