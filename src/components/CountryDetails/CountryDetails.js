@@ -14,7 +14,7 @@ const CountryDetails = ({
         datasets: [
           {
             borderWidth: 1,
-            label: [("Total Infected": confirmed)],
+            label: ["Total Infected"],
             data: [stillInfected, recovered, dead],
             backgroundColor: ["blue", "green", "red"],
           },
