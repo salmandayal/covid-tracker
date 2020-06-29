@@ -3,6 +3,9 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  font-family: sans-serif;
+  background: #262626;
+  color: white;
 }
 
 :root {
@@ -10,19 +13,22 @@ body {
 }
 
 .container {
+  border-top: 4px solid var(--theme-red);
+  padding-top: 1em;
   display: flex;
   flex-direction: column;
   position: relative;
   border-bottom: 4px solid var(--theme-red);
+  text-align: center;
 }
 
 .stats {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-top: 4px solid var(--theme-red);
+  justify-content: center;
+  position: relative;
 }
 
 .mapbox {
