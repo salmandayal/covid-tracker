@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Cards, Chart, CountryPicker, MapVisual } from "./components"
+import { Cards, Chart, MapVisual } from "./components"
 import "./App.css"
 import { fetchData } from "./api"
 
@@ -20,7 +20,6 @@ export default class App extends Component {
         <div className='stats'>
           <Cards data={data} />
           <Chart />
-          <CountryPicker />
         </div>
         <div className='mapbox'>
           <MapVisual />

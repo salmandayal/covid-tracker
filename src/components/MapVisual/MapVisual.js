@@ -5,12 +5,13 @@ import { FaArrowCircleUp } from "react-icons/fa"
 //Map stuff
 import ReactMapGL, { Marker, Popup } from "react-map-gl"
 import axios from "axios"
+import CountryDetails from "../CountryDetails/CountryDetails"
 
 const MapVisual = props => {
   const [viewport, setViewport] = useState({
     latitude: 30.3308401,
     longitude: 71.247499,
-    zoom: 5,
+    zoom: 3,
     width: "100vw",
     height: "100vh",
   })
@@ -41,7 +42,7 @@ const MapVisual = props => {
   //marker color based on confirmed cases
   const getColorFromCount = count => {
     if (count < 10000) {
-      return "tomato"
+      return "#a54242"
     } else if (count < 50000) {
       return "#ad1c1c"
     }
@@ -69,6 +70,9 @@ const MapVisual = props => {
 
   return (
     <div className='MapContainer'>
+      <div className='directions'>
+        <h1>Tap on Marker </h1>
+      </div>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={mapbox_token}
@@ -99,12 +103,7 @@ const MapVisual = props => {
             longitude={selectedRegion.longitude}
             onClose={() => setSelectedRegion(null)}
           >
-            <div>
-              <h3>{selectedRegion.location}</h3>
-              <p>Confirmed Cases:{selectedRegion.confirmed}</p>
-              <p>Recovered Cases:{selectedRegion.recovered}</p>
-              <p>Deaths:{selectedRegion.dead}</p>
-            </div>
+            <CountryDetails countryData={selectedRegion} />
           </Popup>
         )}
       </ReactMapGL>
@@ -113,6 +112,7 @@ const MapVisual = props => {
         onClick={scrollTop}
         style={{ height: 40, display: showScroll ? "flex" : "none" }}
       />
+      <div className='border-line'>Developed By Salman Rana</div>
     </div>
   )
 }

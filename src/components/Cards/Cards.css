@@ -63,7 +63,8 @@
   display: inline-block;
   position: fixed;
   top: 50%;
-  left: 40%;
+  left: 50%;
+  justify-content: center;
   width: 80px;
   height: 80px;
 }
@@ -90,5 +91,11 @@
   }
   100% {
     transform: rotate(1800deg);
+  }
+}
+
+@media (max-width: 420px) {
+  .lds-hourglass {
+    left: 40%;
   }
 }
