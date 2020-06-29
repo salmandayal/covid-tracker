@@ -4,7 +4,7 @@ Covid-19 Tracking App. This app is based on interative maps and charts.
 
 ## Demo 🔥
 
-[Click here for demo](https://github.com/facebook/create-react-app)
+[Click here for demo](http://reactive-covid-tracker-app.surge.sh/)
 
 ## Run on Local Machine ✈
 
